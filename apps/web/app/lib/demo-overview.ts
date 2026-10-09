@@ -53,7 +53,7 @@ export function createBundledDemoOverview(): DashboardResponse {
     generatedAt: now.toISOString(),
     dataSource: 'demo_seed',
     dataSourceNote: 'This is AXIOM sample data for demonstration only. Cloud and Sandbox data remain unchanged.',
-    operatorFirstName: 'Sudesh',
+    operatorFirstName: 'Khushi',
     systemStatus: { state: 'healthy', label: 'Demo', message: 'Original sample data loaded' },
     metrics: [
       { key: 'mrr', label: 'MRR', displayValue: '₹8.4L', rawValue: 840000, unit: 'inr', deltaPct: 12.4, direction: 'up', isImprovement: true, tone: 'cyan', comparisonLabel: 'vs 7d prior', spark: [14, 20, 17, 29, 24, 39, 31, 46, 41, 53] },

@@ -1,7 +1,7 @@
 const { app, BrowserWindow, shell, session } = require('electron');
 const path = require('node:path');
 
-const APP_URL = 'https://axiom-v1.sudeshmehar3.workers.dev/';
+const APP_URL = 'https://axiom-v1.khushijain2004M.workers.dev/';
 const APP_ORIGIN = new URL(APP_URL).origin;
 const AUTH_HOSTS = new Set(['axiom-v1.firebaseapp.com', 'accounts.google.com', 'github.com']);
 

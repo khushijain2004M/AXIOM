@@ -171,7 +171,7 @@ async def _upsert_users(session: AsyncSession, organization: Organization) -> li
     testable ho: `analyst` experiment propose kar sakta hai par approve nahi.
     """
     specs = [
-        ("sudesh@acmecloud.example", "Sudesh Mehar", UserRole.OWNER),
+        ("khushi@acmecloud.example", "Khushi Jain", UserRole.OWNER),
         ("priya@acmecloud.example", "Priya Nair", UserRole.ADMIN),
         ("rahul@acmecloud.example", "Rahul Verma", UserRole.ANALYST),
     ]

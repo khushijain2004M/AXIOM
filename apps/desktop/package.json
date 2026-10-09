@@ -2,7 +2,7 @@
   "name": "axiom-v1-desktop",
   "version": "0.1.0",
   "private": true,
-  "author": "Sudesh Mehar",
+  "author": "Khushi Jain",
   "description": "AXIOM V1 secure Windows desktop application",
   "main": "src/main.cjs",
   "scripts": {

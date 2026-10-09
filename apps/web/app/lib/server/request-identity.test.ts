@@ -14,22 +14,22 @@ describe('request identity boundary', () => {
     vi.stubEnv('AXIOM_HOSTED_IDENTITY_SUFFIX', '.hosted.example');
     const identity = await requestIdentity(new Request('https://axiom-v1.hosted.example/api', { headers: {
       'oai-authenticated-user-id': 'user-123',
-      'oai-authenticated-user-email': 'SUDESH@example.com',
-      'oai-authenticated-user-full-name': 'Sudesh%20Mehar',
+      'oai-authenticated-user-email': 'KHUSHI@example.com',
+      'oai-authenticated-user-full-name': 'Khushi%20Jain',
       'oai-authenticated-user-full-name-encoding': 'percent-encoded-utf-8',
     } }));
-    expect(identity).toMatchObject({ userId: 'user-123', email: 'sudesh@example.com', displayName: 'Sudesh Mehar', authenticated: true, authMode: 'hosted_session' });
+    expect(identity).toMatchObject({ userId: 'user-123', email: 'khushi@example.com', displayName: 'Khushi Jain', authenticated: true, authMode: 'hosted_session' });
   });
 
   it('accepts only Firebase-verified bearer identities on production', async () => {
     vi.spyOn(globalThis, 'fetch').mockResolvedValue(Response.json({ users: [{ localId: 'firebase-user-1', email: 'verified@example.com', emailVerified: true, displayName: 'Verified User', providerUserInfo: [{ providerId: 'google.com', email: 'verified@example.com' }] }] }));
-    const identity = await requestIdentity(new Request('https://axiom-v1.sudeshmehar3.workers.dev/api', { headers: { authorization: 'Bearer signed-firebase-token' } }));
+    const identity = await requestIdentity(new Request('https://axiom-v1.khushijain2004M.workers.dev/api', { headers: { authorization: 'Bearer signed-firebase-token' } }));
     expect(identity).toMatchObject({ userId: 'firebase:firebase-user-1', email: 'verified@example.com', authenticated: true, authMode: 'firebase' });
-    expect(await requestIdentity(new Request('https://axiom-v1.sudeshmehar3.workers.dev/api'))).toBeNull();
+    expect(await requestIdentity(new Request('https://axiom-v1.khushijain2004M.workers.dev/api'))).toBeNull();
   });
 
   it('does not trust partial hosted identity headers', async () => {
     expect(await requestIdentity(new Request('https://axiom.example/api', { headers: { 'oai-authenticated-user-email': 'user@example.com' } }))).toBeNull();
-    expect(await requestIdentity(new Request('https://axiom-v1.sudeshmehar3.workers.dev/api', { headers: { 'oai-authenticated-user-id': 'spoofed', 'oai-authenticated-user-email': 'spoofed@example.com' } }))).toBeNull();
+    expect(await requestIdentity(new Request('https://axiom-v1.khushijain2004M.workers.dev/api', { headers: { 'oai-authenticated-user-id': 'spoofed', 'oai-authenticated-user-email': 'spoofed@example.com' } }))).toBeNull();
   });
 });

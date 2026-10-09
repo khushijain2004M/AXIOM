@@ -7,12 +7,12 @@ const config: CapacitorConfig = {
   backgroundColor: '#020711',
   appendUserAgent: ' AXIOMMobile/0.2.0',
   server: {
-    url: 'https://axiom-v1.sudeshmehar3.workers.dev',
+    url: 'https://axiom-v1.khushijain2004M.workers.dev',
     cleartext: false,
     androidScheme: 'https',
     errorPath: 'offline.html',
     allowNavigation: [
-      'axiom-v1.sudeshmehar3.workers.dev',
+      'axiom-v1.khushijain2004M.workers.dev',
       'axiom-v1.firebaseapp.com',
       'accounts.google.com',
       'github.com'

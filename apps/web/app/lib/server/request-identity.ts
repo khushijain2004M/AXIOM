@@ -85,7 +85,7 @@ export async function requestIdentity(request: Request): Promise<RequestIdentity
     return {
       userId: 'local-development-user',
       email: 'local@axiom.dev',
-      displayName: 'Sudesh',
+      displayName: 'Khushi',
       authenticated: false,
       authMode: 'local_development',
     };
