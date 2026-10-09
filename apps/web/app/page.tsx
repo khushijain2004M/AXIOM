@@ -563,6 +563,14 @@ export default function Home() {
       .then((payload) => { if (!cancelled && sequence === requestSequence.current) applyData(payload); })
       .catch((cause: unknown) => {
         if (cancelled || sequence !== requestSequence.current) return;
+        // The public static demo has no server API; keep the full UI usable with
+        // AXIOM's bundled read-only sample workspace instead of showing a 404.
+        if (cause instanceof AxiomApiError && cause.status === 404) {
+          applyData(createBundledDemoOverview());
+          setError(null);
+          setHint(null);
+          return;
+        }
         if (cause instanceof AxiomNetworkError) {
           setError('Could not connect to AXIOM. Check your connection and try again.');
           setHint('Please refresh the page. AXIOM will reconnect automatically.');
